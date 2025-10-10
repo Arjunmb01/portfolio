@@ -12,36 +12,28 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "TaskPulse",
-      description:
-        "Smart TODO App with automated reminders using Bree.js for scheduling. Features task management, priority levels, and email notifications.",
-      tech: ["React", "Node.js", "MongoDB", "Bree.js", "Express"],
-      github: "https://github.com/arjunmb/taskpulse",
-      demo: "https://taskpulse-demo.com",
-    },
-    {
-      title: "LaptopHub",
+      title: "InfinityTech",
       description:
         "E-commerce platform for laptops with Razorpay payment integration. Includes product catalog, cart management, and secure checkout.",
       tech: ["Node.js", "Express", "MongoDB", "EJS", "Razorpay"],
-      github: "https://github.com/arjunmb/laptophub",
-      demo: "https://laptophub-demo.com",
+      github: "https://github.com/Arjunmb01/InfinityTech",
+      demo: "",
     },
     {
       title: "WeatherApp",
       description:
         "Real-time weather application using OpenWeather API. Displays current weather, 5-day forecast, and location-based weather data.",
       tech: ["Node.js", "Express", "OpenWeather API", "EJS"],
-      github: "https://github.com/arjunmb/weatherapp",
-      demo: "https://weatherapp-demo.com",
+      github: "https://github.com/Arjunmb01/weather",
+      demo: "https://weather-gamma-six-23.vercel.app/",
     },
     {
       title: "Portfolio Website",
       description:
         "Modern, responsive portfolio website built with React and Framer Motion. Features smooth animations and dark mode support.",
       tech: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
-      github: "https://github.com/arjunmb/portfolio",
-      demo: "https://arjunmb.dev",
+      github: "https://github.com/Arjunmb01/portfolio",
+      demo: "https://portfolio-cyan-ten-95.vercel.app/",
     },
   ];
 

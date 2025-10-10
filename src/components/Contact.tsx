@@ -63,20 +63,20 @@ export const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/arjunmb",
+      href: "https://github.com/Arjunmb01",
       username: "@arjunmb",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/arjunmb",
+      href: "https://www.linkedin.com/in/arjun-mb/",
       username: "in/arjunmb",
     },
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:arjun@example.com",
-      username: "arjun@example.com",
+      href: "mailto:arjunmb1176@gmail.com",
+      username: "arjunmb1176@gmail.com",
     },
   ];
 

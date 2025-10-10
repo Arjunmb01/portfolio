@@ -11,17 +11,17 @@ export const Skills = () => {
   const skillCategories = [
     {
       category: "Frontend",
-      skills: ["HTML", "CSS", "JavaScript", "React.js", "TailwindCSS"],
+      skills: ["HTML", "CSS", "JavaScript", "React.js", "TailwindCSS","TypeScript","Python"],
       color: "bg-gradient-accent",
     },
     {
       category: "Backend",
-      skills: ["Node.js", "Express.js"],
+      skills: ["Node.js", "Express.js","Django"],
       color: "bg-gradient-primary",
     },
     {
       category: "Database",
-      skills: ["MongoDB"],
+      skills: ["MongoDB","Postgres"],
       color: "bg-gradient-accent",
     },
     {

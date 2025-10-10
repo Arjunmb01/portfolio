@@ -84,7 +84,7 @@ export const Hero = () => {
             className="flex gap-6 justify-center"
           >
             <a
-              href="https://github.com/arjunmb"
+              href="https://github.com/Arjunmb01"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors duration-300"
@@ -92,7 +92,7 @@ export const Hero = () => {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/arjunmb"
+              href="https://www.linkedin.com/in/arjun-mb/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors duration-300"
@@ -100,7 +100,7 @@ export const Hero = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="mailto:arjun@example.com"
+              href="mailto:arjunmb1176@gmail.com"
               className="text-muted-foreground hover:text-accent transition-colors duration-300"
             >
               <Mail className="w-6 h-6" />
