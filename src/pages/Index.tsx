@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
@@ -9,8 +9,8 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <div className="min-h-screen relative overflow-x-hidden" style={{ backgroundColor: "#0a0a0a" }}>
+      <Navbar />
       <Hero />
       <About />
       <Skills />

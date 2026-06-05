@@ -1,86 +1,70 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { EXPERIENCE } from "@/constants/data";
 import { useRef } from "react";
-import { Card } from "@/components/ui/card";
-import { GraduationCap, Code, Laptop } from "lucide-react";
 
 export const Experience = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const timeline = [
-    {
-      icon: GraduationCap,
-      title: "Instrumentation & Control Engineering",
-      subtitle: "Academic Background",
-      description:
-        "Graduated with a degree in Instrumentation and Control Engineering, building a strong foundation in technical problem-solving and systems thinking.",
-      period: "2018 - 2022",
-    },
-    {
-      icon: Code,
-      title: "Brototype Bootcamp",
-      subtitle: "Full Stack Development",
-      description:
-        "Intensive training in MERN stack development, learning industry best practices and working on real-world projects.",
-      period: "2023",
-    },
-    {
-      icon: Laptop,
-      title: "Self-Learning & Projects",
-      subtitle: "Continuous Development",
-      description:
-        "Building diverse projects including TaskPulse, LaptopHub, and WeatherApp. Continuously expanding skills in modern web technologies and best practices.",
-      period: "2023 - Present",
-    },
-  ];
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <section id="experience" className="py-20 md:py-32 bg-secondary/30" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-24 relative overflow-hidden">
+      <div className="orb orb-violet" style={{ opacity: 0.06, top: "10%", right: "-20%" }} />
+
+      <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 space-y-3"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Learning <span className="text-gradient">Journey</span>
+          <span className="label">Journey</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            My <span className="gradient-text">milestones</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-accent mx-auto rounded-full" />
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {timeline.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-            >
-              <Card className="p-6 glass shadow-card hover:shadow-glow transition-all duration-300">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-accent flex items-center justify-center">
-                      <item.icon className="w-8 h-8 text-accent-foreground" />
+        <div ref={ref} className="max-w-2xl relative pl-8">
+          {/* Timeline line */}
+          <div className="absolute left-0 top-2 bottom-2 w-px bg-white/[0.06]" />
+          <motion.div
+            style={{ scaleY, originY: 0 }}
+            className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-violet-500 via-pink-500 to-transparent"
+          />
+
+          <div className="space-y-8">
+            {EXPERIENCE.map((exp, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="relative group"
+              >
+                {/* Dot */}
+                <div className="absolute -left-[37px] top-5 timeline-dot" />
+
+                {/* Card */}
+                <div className="glass glass-hover gradient-border rounded-2xl p-6 space-y-3">
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <div>
+                      <p className="text-xs font-semibold text-violet-400 uppercase tracking-wider mb-1">
+                        {exp.period}
+                      </p>
+                      <h3 className="text-lg font-bold text-white">{exp.title}</h3>
+                      <p className="text-sm text-white/40 font-medium">{exp.company}</p>
+                    </div>
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-pink-500/20 flex items-center justify-center shrink-0">
+                      <span className="text-xs font-bold text-violet-300">{String(i + 1).padStart(2, "0")}</span>
                     </div>
                   </div>
-                  <div className="flex-grow">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                      <div>
-                        <h3 className="text-2xl font-semibold">{item.title}</h3>
-                        <p className="text-accent font-medium">{item.subtitle}</p>
-                      </div>
-                      <span className="text-sm text-muted-foreground mt-1 md:mt-0">
-                        {item.period}
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
+                  <div className="h-px bg-white/[0.06]" />
+                  <p className="text-sm text-white/45 leading-relaxed">{exp.description}</p>
                 </div>
-              </Card>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
